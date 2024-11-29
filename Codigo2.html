@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto - PortfolioSLR</title>
+    <link rel="stylesheet" href="proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <code>
+        <div class="code-container">
+            <pre>
+        <code>
+            import random
+            import string
+            
+            def generar_contraseña(longitud, usar_mayusculas, usar_minusculas, usar_numeros, usar_especiales):
+                if longitud < 1:
+                    raise ValueError("La longitud debe ser al menos 1.")
+                
+                caracteres = ""
+                if usar_mayusculas:
+                    caracteres += string.ascii_uppercase
+                if usar_minusculas:
+                    caracteres += string.ascii_lowercase
+                if usar_numeros:
+                    caracteres += string.digits
+                if usar_especiales:
+                    caracteres += string.punctuation
+                
+                if not caracteres:
+                    raise ValueError("Debe seleccionar al menos un tipo de carácter.")
+                
+                return ''.join(random.choice(caracteres) for _ in range(longitud))
+            
+            def main():
+                print("=== Generador de Contraseñas Seguras ===")
+                try:
+                    longitud = int(input("Introduce la longitud de la contraseña: "))
+                    usar_mayusculas = input("¿Incluir letras mayúsculas? (s/n): ").lower() == 's'
+                    usar_minusculas = input("¿Incluir letras minúsculas? (s/n): ").lower() == 's'
+                    usar_numeros = input("¿Incluir números? (s/n): ").lower() == 's'
+                    usar_especiales = input("¿Incluir caracteres especiales? (s/n): ").lower() == 's'
+                    
+                    contraseña = generar_contraseña(longitud, usar_mayusculas, usar_minusculas, usar_numeros, usar_especiales)
+                    print(f"\nTu contraseña generada es: {contraseña}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+            
+            if __name__ == "__main__":
+                main()
+            
+        </code>
+            </pre>
+        </div>
+    
+    </code>
+        </pre>
+    </div>
